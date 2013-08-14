@@ -1,6 +1,6 @@
 {
   "name": "zepto",
   "description": "Shim repository for the Zepto.js JavaScript library.",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "main": "./zepto.js"
 }

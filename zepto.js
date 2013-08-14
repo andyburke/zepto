@@ -1,4 +1,5 @@
-/* Zepto v1.0 - polyfill zepto detect event ajax form fx - zeptojs.com/license */
+/* Zepto v1.0-7-g579f376 - polyfill zepto detect event ajax form fx - zeptojs.com/license */
+
 
 ;(function(undefined){
   if (String.prototype.trim === undefined) // fix for iOS 3.2
@@ -32,10 +33,6 @@
     }
 
 })()
-
-
-
-
 
 var Zepto = (function() {
   var undefined, key, $, classList, emptyArray = [], slice = emptyArray.slice, filter = emptyArray.filter,
@@ -258,7 +255,7 @@ var Zepto = (function() {
   }
 
   function filtered(nodes, selector) {
-    return selector === undefined ? $(nodes) : $(nodes).filter(selector)
+    return selector == null ? $(nodes) : $(nodes).filter(selector)
   }
 
   $.contains = function(parent, node) {
@@ -322,7 +319,9 @@ var Zepto = (function() {
   }
 
   $.camelCase = camelize
-  $.trim = function(str) { return str.trim() }
+  $.trim = function(str) {
+    return str == null ? "" : String.prototype.trim.call(str)
+  }
 
   // plugin compatibility
   $.uuid = 0
@@ -820,13 +819,8 @@ var Zepto = (function() {
   return $
 })()
 
-
 window.Zepto = Zepto
 '$' in window || (window.$ = Zepto)
-
-
-
-
 
 ;(function($){
   function detect(ua){
@@ -879,10 +873,6 @@ window.Zepto = Zepto
   $.__detect = detect
 
 })(Zepto)
-
-
-
-
 
 ;(function($){
   var $$ = $.zepto.qsa, handlers = {}, _zid = 1, specialEvents={},
@@ -1129,10 +1119,6 @@ window.Zepto = Zepto
 
 })(Zepto)
 
-
-
-
-
 ;(function($){
   var jsonpID = 0,
       document = window.document,
@@ -1275,7 +1261,7 @@ window.Zepto = Zepto
     // Whether data should be serialized to string
     processData: true,
     // Whether the browser should be allowed to cache GET responses
-    cache: true,
+    cache: true
   }
 
   function mimeToDataType(mime) {
@@ -1444,10 +1430,6 @@ window.Zepto = Zepto
   }
 })(Zepto)
 
-
-
-
-
 ;(function ($) {
   $.fn.serializeArray = function () {
     var result = [], el
@@ -1484,10 +1466,6 @@ window.Zepto = Zepto
   }
 
 })(Zepto)
-
-
-
-
 
 ;(function($, undefined){
   var prefix = '', eventPrefix, endEventName, endAnimationName,
